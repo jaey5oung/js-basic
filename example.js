@@ -40,3 +40,43 @@ if (sum / 3 === 0) {
   }
   console.log(result);
   
+  //블럭
+  {
+    const name = 'jang';
+    console.log(name);
+    
+  }
+
+  // console.log(name);
+
+  //밖에서 안으로
+
+  let age = 37;
+  {
+    age++;
+  }
+
+  //중첩
+  //블럭은 블럭안에서 변수를선언할때 그 블럭범위에서만 사용할수있고 블럭밖에서 먼저 선언하게되면 어디서든 블럭범위에서 사용할수있다 하지만 블럭안에서 선언된것은 밖에서 사용은 불가능하다
+
+  //var es5까지만 사용되었지만
+  
+  var c = 0;
+  {
+    c++;
+    console.log(c);
+    
+  }
+  
+  {
+    var d = 0;
+    console.log(d);
+    
+  }
+
+  console.log(d);
+
+  //원래 const나 let을 사용할땐 블럭안에선언되어잇는걸 밖에서 사용하지못하지만 var같은경우는 블럭이 있든없든 함수처리를 하기때문에 블럭안에서 선언이되도 밖에서 사용할수있다
+
+// var키워드와 hoisting
+  
