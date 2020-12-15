@@ -443,4 +443,236 @@ switch (n % 5) {
     console.log(n);
 }
 
-//반복문
+//반복문이 없다면?
+
+console.log('안녕하세요');
+console.log('안녕하세요');
+console.log('안녕하세요');
+console.log('안녕하세요');
+console.log('안녕하세요');
+
+//for 문을 사용한다면?
+//보통 어떤 유한한 횟수만큼 반복할 때는 for문을 사용합니다.
+
+for (let i = 0; i < 5; i++) {
+  console.log('안녕하세요');
+}
+
+// for(초기화; 반복조건; 반복이 된후 실행되는 코드){
+// 반복이 되는 코드블럭
+// }
+
+//for(a; b; c){
+// d
+// }
+//  e
+
+//  a -> d -> c -> b -> d -> c -> b -> e
+
+//초기화 하면서 선언된 변수를 중괄호 안 반복 블럭에서 사용할 수 있습니다.
+
+for (let i = 0; i < 5; i++) {
+  console.log('안녕하세요', i);
+}
+
+for (let i = 0, j = 5; i < 5; i++) {
+  console.log('안녕하세요', i, j);
+}
+
+for (let i = 0, j = 2; i < 5; i++, j = j * j) {
+  console.log('안녕하세요', i, j);
+}
+
+//반복문을 즉시 종료하고 싶을 때는 반복되는 블럭 안에서 break; 를 실행하면 가능합니다.
+
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+  if (i > 2) {
+    break;
+  }
+  console.log('안녕하세요', i);
+}
+//반복되는 블럭 안에서 continue; 를 만나면 거기서 바로 해당 블럭은 종료합니다.
+//그리고 이와 같이 다음 반복이 있으면 다음 반복으로 넘어갑니다.
+
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+  if (i < 2) {
+    continue;
+  }
+  console.log('안녕하세요', i);
+}
+
+//무한루프
+for (;;) {
+  console.log('안녕하세요');
+  if (Math.random() * 100 > 90) {
+    break;
+  }
+}
+
+// while(조건(true or false)){
+//   조건이 거짓이 될 때까지 반복실행
+// }
+
+//while 무한루프
+while (true) {
+  console.log('안녕하세요');
+  if (Math.random() * 100 > 90) {
+    break;
+  }
+}
+
+// do {
+//   조건이 거짓이 될때까지 반복실행
+// } while(조건)
+
+do {
+  console.log('안녕하세요');
+} while (Math.random() * 100 <= 90);
+
+// for of
+// iterable = 배열
+for (const i of [1, 2, 3]) {
+  console.log(i);
+}
+
+// for in
+// 모든 프로퍼티
+
+Object.prototype.test = function () {};
+
+for (const i in { a: 1, b: 2, c: 3 }) {
+  console.log(i);
+}
+
+//함수
+
+// function hello(){}  = 함수를 만들때 사용하는 키워드
+
+//function
+//이름이 hello1 인 함수를 선언
+
+function hello1() {
+  console.log('hello1');
+}
+console.log(hello1, typeof hello1);
+
+//함수의 매개변수
+//함수를 호출할 때 값을 지정
+
+function hello2(name) {
+  console.log('hello', name);
+}
+
+//함수의 리턴
+//함수를 실행하면 얻어지는 값
+
+function hello3(name) {
+  return `hello3 ${name}`;
+}
+
+console.log(hello3('jang'));
+
+//const hello = function(){}
+//함수를 만들때 사용하는 키워드
+
+//function
+//이름이 hello1 인 함수를 선언
+
+const hello1 = function () {
+  console.log('hello1');
+};
+console.log(hello1, typeof hello1);
+
+//함수의 매개변수
+//함수를 호출할 때 값을 지정
+
+const hello2 = function (name) {
+  console.log('hello2', name);
+};
+
+//함수의 리턴
+//함수를 실행하면 얻어지는 값
+
+const hello3 = function (name) {
+  return `hello3 ${name}`;
+};
+
+//첫번째 함수와 두번째함수의 만든것의 차이점은 첫번째는 선언적 function 과 익명 함수를 만들어 변수에 할당
+
+console.log(hello2);
+
+hello1();
+hello2();
+hello3();
+
+function hello1() {
+  console.log('hello1');
+}
+
+var hello2 = function () {
+  console.log('hello2');
+};
+
+const hello3 = function () {
+  console.log('hello3');
+};
+
+// const hello = new Function();
+//생성자 함수로 함수를 만드는방법
+
+//new Function(인자1,인자2,..,함수의 바디)
+const sum = new Function('a', 'b', 'c', 'return a + b + c');
+console.log(sum(1, 2, 3));
+
+// function 과 new Function() 의 차이점
+
+global.a = 0;
+
+{
+  const a = 1;
+
+  const test = new Function('return a');
+  console.log(test());
+}
+
+{
+  const a = 2;
+
+  const test = function () {
+    return a;
+  };
+  console.log(test());
+}
+
+// arrow 함수를 만들어 이름이 hello1 인 변수에 할당
+
+const hello1 = () => {
+  console.log('hello1');
+};
+
+// 함수의 매개변수
+// 함수를 호출할 때 값을 지정
+
+//매개변수가 하나일 때, 괄호 생략 가능
+
+const hello2 = (name) => {
+  console.log('hello2', name);
+};
+
+const hello3 = (name, age) => {
+  console.log('hello3', name, age);
+};
+
+// 함수의 리턴
+// 함수를 실행하면 얻어지는 값
+
+const hello4 = (name) => {
+  return `hello4 ${name}`;
+};
+
+const hello5 = (name) => `hello5 ${name}`;
+
+
+
