@@ -719,8 +719,44 @@ hello(function () {
   console.log('콜백');
 });
 
-
-
 // 객체(object) 함수,클래스(틀)=> 객체,개체,object
 
 //function 틀(){}=> new 틀() 생성자함수로 객체만들기
+
+function A() {}
+
+const a = new A();
+console.log(a, typeof a);
+console.log(A());
+
+// 생성하면서 데이터 넣기
+function B(name, age) {
+  console.log(name, age);
+}
+
+const b = new B();
+const c = new B('Mark', 37);
+console.log(B());
+
+//객체에 속성 추가하기
+
+function A() {
+  this.name = 'Mark';
+}
+
+const a = new A(); //{name: 'Mark'}
+console.log(a);
+
+//함수를 속성으로 넣기
+
+function B() {
+  this.hello = function () {
+    console.log('hello');
+  };
+}
+
+new B().hello();
+
+
+//new Object() 오브젝트로 객체 만들기
+
