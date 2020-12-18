@@ -757,6 +757,160 @@ function B() {
 
 new B().hello();
 
-
 //new Object() 오브젝트로 객체 만들기
 
+const a = new Object();
+
+console.log(a, typeof a);
+
+const b = new Object(true);
+
+console.log(b, typeof b);
+
+const c = new Object({ name: 'Mark' });
+
+console.log(c, typeof c);
+
+//prototype 프로토타입 체인
+
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.hello = function () {
+    console.log('hello', this.name, this.age);
+  };
+}
+
+Person.prototype.hello = function () {
+  console.log('hello', this.name, this.age);
+};
+
+const p = new Person('Mark', 37);
+
+p.hello();
+
+console.log(p.toString());
+
+console.log(Person.prototype);
+console.log(Person.prototype.toString);
+console.log(Person.prototype.constructor);
+console.log(Person.prototype.hello);
+
+console.log(Object.prototype);
+console.log(Object.prototype.toString);
+console.log(Object.prototype.constructor);
+
+console.log(p instanceof Person);
+console.log(p instanceof Object);
+
+// prototype 상속
+
+function Person() {}
+
+Person.prototype.hello = function () {
+  console.log('hello');
+};
+
+function Korean(region) {
+  this.region = region;
+  this.where = function () {
+    console.log('where', this.region);
+  };
+}
+
+Korean.prototype = Person.prototype;
+const k = new Korean('Seoul');
+
+k.hello();
+k.where();
+
+console.log(k instanceof Korean);
+console.log(k instanceof Person);
+console.log(k instanceof Object);
+
+//객체 리터럴
+
+const a = {};
+
+console.log(a, typeof a);
+
+const b = {
+  name: 'Mark',
+};
+
+console.log(b, typeof b);
+
+const c = {
+  name: 'Mark',
+  hello1() {
+    console.log('hello1', this.name);
+  },
+  hello2: function () {
+    console.log('hello2', this.name);
+  },
+  hello3: () => {
+    console.log('hello3', this);
+  },
+};
+
+c.hello1();
+c.hello2();
+c.hello3();
+
+//표준 내장 객체
+
+//Array
+
+const a = new Array('red', 'black', 'white');
+
+console.log(a, typeof a);
+console.log(a instanceof Array);
+console.log(a instanceof Object);
+
+const b = ['red', 'green', 'yellow'];
+
+console.log(b, typeof b);
+console.log(b instanceof Array);
+console.log(b instanceof Obeject);
+
+console.log(b.slice(0, 1));
+//0번째부터 1개만 짤라오겠다 slice
+console.log(Array.prototype.slice, Object.prototype.slice);
+
+//class 객체를 만들수 있는 새로운방법 es6부터 지원되는것
+
+//class
+//선언적 방식
+class A {}
+
+console.log(new A());
+
+//class 표현식을 변수에 할당
+
+const B = class {};
+console.log(new B());
+
+//선언적 방식이지만 호이스팅은 일어나지 않는다
+
+//constructor 생성자
+
+class A {}
+
+console.log(new A());
+
+class B {
+  constructor() {
+    console.log('constructor');
+  }
+}
+
+console.log(new B());
+
+class C {
+  constructor(name, age) {
+    console.log('constructor', name, age);
+  }
+}
+
+console.log(new C('Mark', 38));
+console.log(new C());
