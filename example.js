@@ -914,3 +914,5 @@ class C {
 
 console.log(new C('Mark', 38));
 console.log(new C());
+
+//12월 19일 복습
