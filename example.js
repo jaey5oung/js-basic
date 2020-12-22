@@ -916,3 +916,141 @@ console.log(new C('Mark', 38));
 console.log(new C());
 
 //12월 19일 복습
+
+//맴버 변수
+
+class A {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+}
+
+console.log(new A('mark', 34));
+
+//class field 는 런타임 확인
+
+class B {
+  name;
+  age;
+}
+
+console.log(new B());
+
+class C {
+  name = 'no name';
+  age = 0;
+
+  constructor(name) {
+    this.name = name;
+    this.age = age;
+  }
+}
+
+console.log(new C('jang', 30));
+
+//멤버 함수
+
+class A {
+  hello1() {
+    console.log('hello1', this);
+  }
+  hello2 = () => {
+    console.log('hello2', this);
+  };
+}
+
+new A().hello1();
+new A().hello2();
+
+class B {
+  name = 'Mark';
+
+  hello() {
+    console.log('hello', this.name);
+  }
+}
+
+new B().hello();
+
+// get , set
+
+class A {
+  _name = 'no name' + '@@@';
+
+  get name() {
+    return this._name;
+  }
+
+  set name(value) {
+    this._name = value + '!!!';
+  }
+}
+
+const a = new A();
+console.log(a);
+a.name = 'Mark';
+console.log(a);
+console.log(a.name);
+console.log(a._name);
+
+//readonly
+
+class B {
+  _name = 'no name';
+
+  get name() {
+    return this._name + '@@@';
+  }
+}
+
+const b = new B();
+console.log(b);
+b.name = 'Mark';
+console.log(b);
+
+//static 변수, 함수
+//객체가 아니고 클래스의 변수와 함수
+
+class A {
+  static age = 37;
+  static hello() {
+    console.log(A.age);
+  }
+}
+
+console.log(A, A.age);
+A.hello();
+
+class B {
+  age = 37;
+  static hello() {
+    console.log(this.age);
+  }
+}
+
+console.log(B, B.age);
+//스태틱은 함수를 내부에있는걸 호출해야 대므로 스태틱을 붙여줘야 호출이가능하다
+B.hello();
+// new B().hello();
+
+class C {
+  static name = '이 클래스의 이름을 C가 아니다';
+}
+
+//extends 상속
+
+//상속 기본
+
+class Parent {
+  name = 'Lee';
+
+  hello() {
+    console.log('hello', this.name);
+  }
+}
+
+class Child extends Parent {}
+const p = new Parent();
+const c = new Child();
+console.log(p, c);
