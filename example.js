@@ -1622,3 +1622,5 @@ function p(ms) {
   const result = await Promise.race([p(1000), p(2000), p(3000)]);
   console.log(result);
 })();
+
+//프로젝트 전 복습
