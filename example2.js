@@ -136,5 +136,21 @@ console.log(a + b);
 const a = 1;
 if (a + 1 === 2) {
   console.log('a + 1이 2입니다');
+  console.log('여러줄도 쓸수있다');
 }
 //이프문구문이 트루일때 콘솔로그가 발동된다
+
+const a = 1;
+if (a + 1 === 2) {
+  const a = 2;
+  console.log('if문 안의 a 값은' + a);
+}
+console.log('if문 밖의 a 값은' + a);
+
+const a = 10;
+if (a > 15) {
+  console.log('a가 15보다 큽니다');
+} else {
+  console.log('a가 15보다 크지 않습니다');
+}
+
