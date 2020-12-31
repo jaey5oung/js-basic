@@ -154,3 +154,56 @@ if (a > 15) {
   console.log('a가 15보다 크지 않습니다');
 }
 
+const a = 10;
+if (a === 5) {
+  console.log('5입니다!');
+} else if (a === 10) {
+  console.log('10입니다!');
+} else {
+  console.log('5도 아니고 10도 아닙니다.');
+}
+
+const device = 'iphone';
+
+switch (device) {
+  case 'iphone':
+    console.log('아이폰!');
+    break;
+  case 'ipad':
+    console.log('아이패드!');
+    break;
+  case 'galaxy note':
+    console.log('갤럭시 노트!');
+    break;
+  default:
+    console.log('모르겠네요..');
+}
+
+// --------------------------------------------------------------------------------------------------------------
+
+//function
+
+function add(a, b) {
+  return a + b;
+  console.log('호출되지 않는 코드');
+}
+const sum = add(1, 2);
+console.log(sum);
+
+function hello(name) {
+  console.log('hello,' + name + '!');
+}
+hello('구연희');
+
+//위와같이 +연산자를 써도되지만 es6부턴 템플릿리터럴로 사용하여 좀더 편하게 쓸수있다
+
+function hello(name) {
+  console.log(`Hello, ${name}!`);
+}
+hello('velopert');
+
+
+//점수를 성적등급으로 변환하기
+
+
+// --------------------------------------------------------------------------------------------------------------
