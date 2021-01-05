@@ -178,11 +178,15 @@ switch (device) {
   default:
     console.log('모르겠네요..');
 }
+//default 아무것도일치하지않은 경우 쓴다
+//break를 쓰지않으면 밑에까지 실행되게 되므로 브레이크를 무조건 걸어준다
 
 // --------------------------------------------------------------------------------------------------------------
 
 //function
 
+//파라메터는 인풋을 얘기한다
+//결과값으로 반환하기위해선 return 리턴을 사용한다
 function add(a, b) {
   return a + b;
   console.log('호출되지 않는 코드');
@@ -190,6 +194,7 @@ function add(a, b) {
 const sum = add(1, 2);
 console.log(sum);
 
+//헬로우라는 함수를 만들고 파라메타로 네임을 받아온다
 function hello(name) {
   console.log('hello,' + name + '!');
 }
@@ -202,16 +207,23 @@ function hello(name) {
 }
 hello('velopert');
 
+//---------------------------------------------------------------------------------------------------------------
 
+function hello(old) {
+  return `나는, ${old}!`;
+  //예를들어 return을 다시한다던지 이런것들은 안된다
+}
 
-//새해 다시준비하기 및 복습
+const howOld = hello('27살입니다');
+console.log(howOld);
 
+//함수안에서 리턴이 사용되고 난후에는 그함수를 재반복할순없다
 
 // --------------------------------------------------------------------------------------------------------------
 
 //점수를 성적등급으로 변환하기
 
-function getGrade(score) {
+function getGreade(score) {
   if (score === 100) {
     return 'A+';
   } else if (score >= 90) {
@@ -233,5 +245,73 @@ function getGrade(score) {
   }
 }
 
-const grade = getGrade(90);
-console.log(grade);
+const greade = getGreade(89);
+console.log(greade);
+
+// --------------------------------------------------------------------------------------------------------------
+
+//es6 애로우펑션 === 화살표함수
+
+const add = (a, b) => {
+  return a + b;
+};
+
+const sum = add(1, 2);
+console.log(sum);
+
+//위 함수를 더욱 간결하게 하기위해선
+
+const add = (a, b) => a + b;
+const sum = add(1, 2);
+console.log(sum);
+
+const hello = (name) => {
+  console.log(`hello, ${name}!`);
+};
+hello('jangjaeyoung');
+
+// --------------------------------------------------------------------------------------------------------------
+
+//객체
+
+const dog = {
+  name: '멍멍이',
+  age: 2,
+  cute: true,
+  sample: {
+    a: 1,
+    b: 2,
+  },
+};
+//name,age 왼쪽에있는것들은 키값(띄어쓰기는안대고 따움표로 감싸서 사용할수있다)
+//객체를 만들땐 항상 쉼표를 사용해야댄다
+console.log(dog.name);
+console.log(dog);
+
+const ironMan = {
+  name: '토니스타크',
+  actor: '로버트 다우니 주니어',
+  alias: '아이언맨',
+};
+
+const captainAmerica = {
+  name: '스티븐로저스',
+  actor: '크리스에반스',
+  alias: '캡틴아메리카',
+};
+
+//원래는 히어로에 엘리아스 네임 엑터를 넣기위해서 hero.alias 이런식으로 넣었지만 비구조할당으로 위에서 빼오고싶은 정보를 먼저 추출한후 적어주면 더 편하게  사용할수있다
+function print(hero) {
+  const { alias, name, actor } = hero;
+  const text = `${alias}(${name})역할을 맡은 배우는 ${actor}입니다.`;
+  console.log(text);
+}
+
+//위쪽은 객체정보만 비구조할당으로 넣어놧지만 파라메타도 비구조할당으로 사용할수있다
+function print({ alias, name, actor }) {
+  const text = `${alias}(${name})역할을 맡은 배우는 ${actor}입니다.`;
+  console.log(text);
+}
+
+print(ironMan);
+print(captainAmerica);
