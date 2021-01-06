@@ -315,3 +315,120 @@ function print({ alias, name, actor }) {
 
 print(ironMan);
 print(captainAmerica);
+
+// --------------------------------------------------------------------------------------------------------------
+
+//객체안에 함수넣기
+
+const dog = {
+  name: '멍멍이',
+  sound: '멍멍!',
+  say: function () {
+    console.log(this.sound);
+  },
+};
+
+const cat = {
+  name: '야옹이',
+  sound: '야옹~~!',
+};
+
+cat.say = dog.say;
+dog.say();
+cat.say();
+
+const catSay = cat.say;
+catSay();
+
+//say 함수의 this는 내가 속해있는 곳을 지칭한다
+//펑션말고 화살표함수를 사용했을땐 내부에서 디스가 무엇인지 인지를하지못하기때문에 쓰지못한다
+//디스를 밖으로 꺼내쓸땐 도그랑 캣의 관계가 깨진다
+
+// --------------------------------------------------------------------------------------------------------------
+const numbers = {
+  a: 1,
+  b: 2,
+};
+
+numbers.a = 5;
+console.log(numbers);
+
+const numbers = {
+  a: 1,
+  b: 2,
+  get sum() {
+    console.log('sum 함수가 실행됩니다');
+    return this.a + this.b;
+  },
+};
+
+//게터함수엔 항상 반환되는 리턴이잇어야댄다
+
+console.log(numbers.sum);
+//보통은 sum()이런식으로 호출하지만 게터는 조회만 할수잇다고 보면된다
+numbers.b = 5;
+console.log(numbers.sum);
+
+//set 함수
+
+const numbers = {
+  _a: 1,
+  _b: 2,
+  sum: 3,
+  calculate() {
+    console.log('calculate');
+    this.sum = this._a + this._b;
+  },
+  get a() {
+    return this._a;
+  },
+  get b() {
+    return this._b;
+  },
+  set a(value) {
+    console.log('a가 바뀝니다.');
+    this._a = value;
+    this.calculate();
+  },
+  set b(value) {
+    console.log('b가 바뀝니다.');
+    this._b = value;
+    this.calculate();
+  },
+};
+
+console.log(numbers.sum);
+numbers.a = 5;
+numbers.b = 7;
+numbers.a = 9;
+console.log(numbers.sum);
+console.log(numbers.sum);
+console.log(numbers.sum);
+
+//getter, setter를 단순히 값 저장용이라고 생각하기보다는 캡슐화, 정보은닉
+
+// --------------------------------------------------------------------------------------------------------------
+
+//배열
+
+const array = ['a', 1, '장재영', {}];
+console.log(array[2]);
+
+const objects = [{ name: '멍멍이' }, { name: '야옹이' }];
+
+//배열을 추가할땐 푸쉬
+objects.push({
+  name: '호낭이',
+});
+
+console.log(objects);
+//배열의 크기를 알아볼땐 length
+console.log(objects.length);
+
+// --------------------------------------------------------------------------------------------------------------
+
+//반복문
+
+for (let i = 0; i < 10; i++){
+  
+}
