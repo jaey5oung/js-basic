@@ -505,7 +505,6 @@ function sumOf(numbers) {
 const result = sumOf([1, 2, 3, 4, 5]);
 console.log(result);
 
-
 function biggerThanThree(numbers) {
   const array = [];
   for (let i = 0; i < numbers.length; i++) {
@@ -518,3 +517,29 @@ function biggerThanThree(numbers) {
 
 const numbers = [1, 2, 3, 4, 5, 6, 7];
 console.log(biggerThanThree(numbers)); // [4, 5, 6, 7]
+
+// --------------------------------------------------------------------------------------------------------------
+
+//forEach
+//배열에있는 데이터들을 일괄적으로뽑아올때 쓴다
+
+const superheroes = ['아이언맨', '캡틴아메리카', '토르', '닥터 스트레인지'];
+
+function print(hero) {
+  console.log(hero);
+}
+
+superheroes.forEach(print);
+
+//더깔끔하게하는법
+superheroes.forEach((hero) => {
+  console.log(hero);
+});
+
+// for (i = 0; i < superheroes.length; i++) {
+//   console.log(superheroes[i]);
+// }
+
+// --------------------------------------------------------------------------------------------------------------
+
+
