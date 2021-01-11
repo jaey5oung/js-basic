@@ -542,5 +542,121 @@ superheroes.forEach((hero) => {
 
 // --------------------------------------------------------------------------------------------------------------
 
+//map
+//배열안에원소를 변환할때 사용한다
 
-//이전꺼 복습하기2
+const array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+const squared = [];
+array.forEach((n) => {
+  squared.push(n * n);
+});
+console.log(squared);
+
+const squared = (n) => n * n;
+const squared = array.map(squared);
+
+console.log(squared);
+
+const items = [
+  {
+    id: 1,
+    text: 'hello',
+  },
+  {
+    id: 2,
+    text: 'bye',
+  },
+];
+
+const texts = items.map((item) => item.text);
+console.log(texts);
+
+//몇번째에있는지 확인하기위한것 indexOf
+
+const superheroes = ['아이언맨', '캡틴아메리카', '토르', '닥터스트레인지'];
+
+const index = superheroes.indexOf('토르');
+console.log(index);
+
+//------------------------------------------------------------------------------------------------------------------
+
+const todos = [
+  {
+    id: 1,
+    text: '자바스크립트 입문',
+    done: true,
+  },
+  {
+    id: 2,
+    text: '함수배우기',
+  },
+  {
+    id: 3,
+    text: '객체와 배열 배우기',
+    done: true,
+  },
+  {
+    id: 4,
+    text: '배열 내장함수 배우기',
+    done: false,
+  },
+];
+
+const index = todos.findIndex((todo) => todo.id === 3);
+console.log(index);
+
+//findeIndex 특정조건을 확인해서 그조건이 일치한다면 그것을 확인해주는 함수 (몇번쨰인지)
+//find를 하게되면 그 값자체를 반환한다 (내용)
+
+//------------------------------------------------------------------------------------------------------------------
+
+//filter
+
+const todos = [
+  {
+    id: 1,
+    text: '자바스크립트 입문',
+    done: true,
+  },
+  {
+    id: 2,
+    text: '함수배우기',
+  },
+  {
+    id: 3,
+    text: '객체와 배열 배우기',
+    done: true,
+  },
+  {
+    id: 4,
+    text: '배열 내장함수 배우기',
+    done: false,
+  },
+];
+
+const tasksNotDone = todos.filter((todo) => todo.done === false);
+console.log(tasksNotDone);
+
+//------------------------------------------------------------------------------------------------------------------
+
+//splice 해당 배열을 삭제하는것 몇번째인지 명시를 해줘야함 (기존의배열을 건들음)
+const numbers = [10, 20, 30, 40];
+const index = numbers.indexOf(30);
+const spliced = numbers.splice(index, 1);
+console.log(index);
+console.log(spliced);
+
+//------------------------------------------------------------------------------------------------------------------
+
+//slice는 기존의 배열을 건들지않음
+const numbers = [10, 20, 30, 40];
+
+const sliced = numbers.slice(0, 2);
+console.log(sliced);
+console.log(numbers);
+
+//------------------------------------------------------------------------------------------------------------------
+
+
+
