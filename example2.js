@@ -658,5 +658,55 @@ console.log(numbers);
 
 //------------------------------------------------------------------------------------------------------------------
 
+const numbers = [10, 20, 30, 40];
+
+//앞에서부터 배열의값들이빠진다
+const value = numbers.shift();
+numbers.unshift(0); //쉬프트랑 언쉬프트랑 쌍이다
+console.log(value);
+console.log(numbers);
+
+//반대로 뒤에서부터 배여르이값들이 빠진다
+const numbers = [10, 20, 30, 40];
+numbers.push(50); //pop이랑 푸쉬는 하나의쌍이다
+const value = numbers.pop();
+console.log(value);
+console.log(numbers);
+
+const numbers = [10, 20, 30, 40];
+numbers.unshift(5);
+console.log(numbers);
+
+//배열들을 합치는것
+//콘캣으로 배열들을 합쳣지만 기존의 배열들을 건들지않는다
+const arr1 = [1, 2, 3];
+const arr2 = [4, 5, 6];
+const concated = arr1.concat(arr2);
+console.log(concated);
+
+const array = [1, 2, 3, 4, 5];
+console.log(array.join());
+console.log(array.join(''));
+console.log(array.join(', '));
+
+//------------------------------------------------------------------------------------------------------------------
+
+//reduce
+
+const numbers = [1, 2, 3, 4, 5];
+
+const sum = numbers.reduce((accumulator, current) => accumulator + current, 0);
+console.log(sum);
+
+let sum = 0;
+numbers.forEach((n) => {
+  sum += n;
+});
+
+console.log(sum);
+
+//리듀스파트 다시 공부하기
+
+//------------------------------------------------------------------------------------------------------------------
 
 
