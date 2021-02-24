@@ -1,4 +1,5 @@
 //변수선언방법
+//다시시작
 
 let value = 1;
 console.log(value);
